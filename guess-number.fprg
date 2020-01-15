@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="mjawe"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-01-15 03:18:42 PM"/>
+        <attribute name="created" value="bWphd2U7REVMTDsyMDIwLTAxLTE1OzAyOjIyOjE0IFBNOzIwODc="/>
+        <attribute name="edited" value="bWphd2U7REVMTDsyMDIwLTAxLTE1OzAzOjE4OjQyIFBNOzE7MjIwMg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="playAgain" type="Boolean" array="False" size=""/>
+            <output expression="&quot;Type a number from 1 to 100.&quot;" newline="True"/>
+            <do expression="playAgain">
+                <declare name="secret" type="Integer" array="False" size=""/>
+                <assign variable="secret" expression="1 + Random(100)"/>
+                <declare name="correct" type="Boolean" array="False" size=""/>
+                <do expression="!correct">
+                    <declare name="guess" type="Integer" array="False" size=""/>
+                    <input variable="guess"/>
+                    <if expression="guess == secret">
+                        <then>
+                            <assign variable="correct" expression="true"/>
+                            <output expression="&quot;G00D Job! The secret number was &quot; &amp; secret" newline="True"/>
+                        </then>
+                        <else>
+                            <assign variable="correct" expression="false"/>
+                            <if expression="guess &lt; secret">
+                                <then>
+                                    <output expression="&quot;Too low! guess a higher number&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;Too high! guess a lower number&quot;" newline="True"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </do>
+                <output expression="&quot;Play Again? (y/n)&quot;" newline="True"/>
+                <declare name="playAgainInput" type="String" array="False" size=""/>
+                <input variable="playAgainInput"/>
+                <assign variable="playAgain" expression="(Len(playAgainInput) &gt; 0) &amp;&amp; &#13;&#10;((Char(PlayAgainInput, 0 ) == &quot;y&quot;) ||&#13;&#10;(Char(playAgainInput, 0) == &quot;Y&quot;))"/>
+            </do>
+            <output expression="&quot;Game Over!&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
